@@ -1,0 +1,229 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="https://share-drop-io.lovable.app/assets/styles-BKZWl-7j.css" data-precedence="default"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=DM+Sans:wght@400;500;600&amp;display=swap" data-precedence="default"/><title>Transfer Files From Phone to PC (No Cable, No App)</title><meta name="author" content="ShareDrop IO"/><meta property="og:site_name" content="ShareDrop IO"/><meta name="twitter:site" content="@Lovable"/><meta name="description" content="Send photos, videos and documents from your phone to your PC in the browser. No USB cable, no app install, no signup."/><meta property="og:title" content="Transfer Files From Phone to PC (No Cable, No App)"/><meta property="og:description" content="Send photos, videos and documents from your phone to your PC in the browser. No USB cable, no app install, no signup."/><meta property="og:url" content="https://share-drop-io.online/phone-to-pc"/><meta property="og:type" content="article"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="Transfer Files From Phone to PC (No Cable, No App)"/><meta name="twitter:description" content="Send photos, videos and documents from your phone to your PC in the browser. No USB cable, no app install, no signup."/><link rel="preconnect" href="https://fonts.googleapis.com/"/><link rel="preconnect" href="https://fonts.gstatic.com/"/><link rel="manifest" href="https://share-drop-io.lovable.app/manifest.webmanifest"/><link rel="icon" href="https://share-drop-io.lovable.app/favicon.ico" type="image/x-icon"/><link rel="apple-touch-icon" href="https://share-drop-io.lovable.app/icon-180.png"/><link rel="canonical" href="https://share-drop-io.online/phone-to-pc"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do phone and PC need the same Wi-Fi?","acceptedAnswer":{"@type":"Answer","text":"For nearby mode, yes. For different networks, use an internet room code."}},{"@type":"Question","name":"Does it work with iPhone and Windows?","acceptedAnswer":{"@type":"Answer","text":"Yes, both sides only need a modern browser."}},{"@type":"Question","name":"Will it compress my photos?","acceptedAnswer":{"@type":"Answer","text":"No. The original file bytes are transferred."}}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://share-drop-io.online/"},{"@type":"ListItem","position":2,"name":"Transfer Files From Phone to PC","item":"https://share-drop-io.online/phone-to-pc"}]}</script>
+<style>
+	#lovable-badge {
+		--badge-bg: #1b1b1b;
+		--badge-text: #c5c1b9;
+		--badge-text-hover: #dcdad5;
+		--badge-radius: 6px;
+		--badge-padding: 8px;
+		--badge-gap: 6px;
+		--badge-shadow: 
+			0 0 0 1px rgba(0, 0, 0, 0.88),
+			0 1px 0 0 rgba(0, 0, 0, 0.04),
+			0 2px 2px -1px rgba(0, 0, 0, 0.08),
+			0 4px 4px -2px rgba(0, 0, 0, 0.08),
+			0 8px 8px -4px rgba(0, 0, 0, 0.08),
+			0 16px 16px -8px rgba(0, 0, 0, 0.08);
+		--badge-transition-duration: 0.2s;
+		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
+		--focus-color: #575ECF;
+		--focus-offset: 2px;
+		--focus-width: 2px;
+		
+		position: fixed;
+		bottom: 12px;
+		right: 12px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		z-index: 1000000;
+		background-color: var(--badge-bg) !important;
+		color: var(--badge-text) !important;
+		border-radius: var(--badge-radius);
+		box-shadow: var(--badge-shadow) !important;
+		font-size: 12px;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-weight: 400 !important;
+		text-transform: none !important;
+		font-feature-settings: normal !important;
+		transform: translateZ(0);
+		will-change: transform, opacity;
+		transition: opacity var(--badge-transition-duration) var(--badge-transition-easing);
+	}
+
+	#lovable-badge.closing {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	#lovable-badge-cta {
+		display: flex;
+		align-items: baseline;
+		gap: var(--badge-gap);
+		box-sizing: border-box;
+		padding: 4px var(--badge-padding) 0;
+		height: 100%;
+		color: inherit;
+		text-decoration: none;
+		white-space: nowrap;
+		border-radius: var(--badge-radius) 0 0 var(--badge-radius);
+		transition: 
+			background-color var(--badge-transition-duration) ease,
+			color var(--badge-transition-duration) ease,
+			transform 0.1s ease;
+	}
+
+	#lovable-badge-cta:hover {
+		background: rgba(255, 255, 255, 0.04);
+		color: var(--badge-text-hover);
+	}
+
+	#lovable-badge-cta:active {
+		transform: scale(0.98);
+	}
+
+	#lovable-badge-cta:focus {
+		outline: none;
+	}
+
+	#lovable-badge-cta:focus-visible {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: var(--focus-offset);
+		z-index: 1;
+	}
+
+	#lovable-badge-text {
+		line-height: 1;
+	}
+
+	/* The wordmark baseline sits at y=12 of the 16px logo; an empty 12px box
+	   makes that the flex baseline so the text aligns to it on any system font. */
+	#lovable-badge-logo {
+		position: relative;
+		display: block;
+		width: 52px;
+		height: 12px;
+	}
+
+	#lovable-badge-logo svg {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	#lovable-badge-divider {
+		width: 1px;
+		height: 24px;
+		background-color: rgba(255, 255, 255, 0.04);
+		flex-shrink: 0;
+	}
+
+	#lovable-badge-close {
+		width: 24px;
+		height: 24px;
+		min-width: 24px;
+		min-height: 24px;
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
+		flex-shrink: 0;
+		transition: 
+			background-color var(--badge-transition-duration) ease,
+			transform 0.1s ease;
+	}
+
+	#lovable-badge-close:hover {
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	#lovable-badge-close:active {
+		transform: scale(0.92);
+	}
+
+	#lovable-badge-close:focus {
+		outline: none;
+	}
+
+	#lovable-badge-close:focus-visible {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: calc(var(--focus-offset) * -1);
+		z-index: 1;
+	}
+
+	#lovable-badge-close svg path {
+		fill: var(--badge-text);
+		transition: fill var(--badge-transition-duration) ease;
+	}
+
+	#lovable-badge-close:hover svg path {
+		fill: var(--badge-text-hover);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#lovable-badge,
+		#lovable-badge-cta,
+		#lovable-badge-close,
+		#lovable-badge-close svg path {
+			transition: none;
+		}
+		
+		#lovable-badge-cta:active,
+		#lovable-badge-close:active {
+			transform: none;
+		}
+	}
+
+	@media (prefers-contrast: high) {
+		#lovable-badge {
+			--badge-bg: #000;
+			--badge-text: #fff;
+			--badge-text-hover: #fff;
+			border: 2px solid currentColor;
+		}
+		
+		#lovable-badge-cta:focus-visible,
+		#lovable-badge-close:focus-visible {
+			outline-width: 3px;
+		}
+	}
+</style>
+<meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_0fbnrhabcf80k9ky3ksxq3qkqh/03ea42e99a68c452bccd58948a8ea3dc_1791800154901.png"><meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_0fbnrhabcf80k9ky3ksxq3qkqh/03ea42e99a68c452bccd58948a8ea3dc_1791800154901.png"></head><body><div class="flex min-h-dvh flex-col"><header class="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl"><div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4"><a aria-label="ShareDrop IO home" href="en.html"><span class="inline-flex items-center gap-2 "><svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true" class="shrink-0"><rect width="40" height="40" rx="12" fill="url(#logo-grad)"></rect><rect x="8" y="10" width="10" height="18" rx="2" fill="white" fill-opacity="0.9"></rect><rect x="22" y="14" width="10" height="14" rx="2" fill="white" fill-opacity="0.8"></rect><path d="M14 16L26 24M26 24L22 24M26 24L26 20" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M26 16L14 24M14 24L18 24M14 24L14 20" stroke="url(#logo-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"></path><defs><linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="oklch(0.58 0.19 254)"></stop><stop offset="1" stop-color="oklch(0.75 0.14 190)"></stop></linearGradient></defs></svg><span class="font-display text-xl font-bold tracking-tight">ShareDrop <span class="text-gradient">IO</span></span></span></a><nav aria-label="Main" class="hidden items-center gap-1 lg:flex"><a href="en-transfer.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">Transfer</a><a href="en-nearby.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">Nearby</a><a href="en-rooms.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">Rooms</a><a href="en-send-text.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">Send Text</a><a href="en-send-link.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">Send Link</a><a href="en-how-it-works.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">How It Works</a><a href="blog.html" class="rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground">Blog</a></nav><div class="flex items-center gap-2"><div class="hidden items-center lg:flex"><label class="sr-only" for="locale-switcher">Select language</label><div class="relative flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe pointer-events-none absolute left-2 size-3.5 text-muted-foreground" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><select id="locale-switcher" class="cursor-pointer rounded-full border border-border bg-card py-1.5 pl-7 pr-3 text-xs font-semibold text-muted-foreground outline-none transition-colors hover:text-foreground"><option value="en" selected="">EN</option><option value="hi">HI</option><option value="es">ES</option><option value="fr">FR</option><option value="de">DE</option><option value="pt">PT</option><option value="ar">AR</option><option value="id">ID</option></select></div></div><div class="hidden sm:block"><div role="radiogroup" aria-label="Color theme" class="inline-flex items-center gap-0.5 rounded-full border border-border bg-surface p-0.5"><button type="button" role="radio" aria-checked="false" aria-label="Light theme" class="inline-flex size-8 items-center justify-center rounded-full transition-colors text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun size-4" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button><button type="button" role="radio" aria-checked="false" aria-label="Dark theme" class="inline-flex size-8 items-center justify-center rounded-full transition-colors text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon size-4" aria-hidden="true"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"></path></svg></button><button type="button" role="radio" aria-checked="true" aria-label="System theme" class="inline-flex size-8 items-center justify-center rounded-full transition-colors bg-card text-foreground shadow-soft"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-monitor size-4" aria-hidden="true"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg></button></div></div><button type="button" class="hidden items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold hover:bg-surface md:mr-2 md:inline-flex"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download size-4" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg> Install</button><a href="en-transfer.html" class="hidden items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5 md:inline-flex">Start Sharing</a><button type="button" aria-label="Open menu" aria-expanded="false" class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-border text-foreground lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu size-5" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></header><main class="flex-1"><!--$--><article class="mx-auto max-w-3xl px-4 py-12"><nav class="mb-6 flex overflow-x-auto whitespace-nowrap pb-2" aria-label="Breadcrumb"><ol class="flex items-center space-x-2 text-xs text-muted-foreground"><li class="flex items-center"><a href="index.html" class="flex items-center hover:text-primary transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-house mr-1 size-3" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>Home</span></a></li><li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right size-3 shrink-0 opacity-40" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><a href="blog.html" class="hover:text-primary transition-colors">Guides</a></li><li class="flex items-center space-x-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right size-3 shrink-0 opacity-40" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg><span class="font-medium text-foreground">Transfer Files From Phone to PC</span></li></ol></nav><p class="text-xs font-semibold uppercase tracking-widest text-primary">Guide</p><h1 class="mt-2 text-3xl font-bold sm:text-4xl">Transfer Files From Phone to PC</h1><p class="mt-4 text-lg text-muted-foreground">Cables get lost, and messaging yourself files compresses your photos. The fastest cable-free route is a direct browser transfer between your phone and your PC over the same network.</p><div class="mt-6 rounded-2xl border border-primary/30 bg-primary/5 p-5"><h2 class="text-sm font-semibold uppercase tracking-widest text-primary">Short answer</h2><p class="mt-2 text-surface-foreground">Open share-drop-io.online on both your phone and PC, scan the QR code with the phone, pick the PC and send. Files land in your PC&#x27;s Downloads folder.</p></div><div class="prose-doc mt-10"><h2 id="step-by-step" class="scroll-mt-24">Step-by-step</h2><ol><li>Open share-drop-io.online in any modern browser on your phone.</li><li>Open the same page on your PC — or scan the QR code shown on the first device.</li><li>Both devices appear in the device list once they are connected.</li><li>Tap the receiving device, then choose files, photos or a whole folder.</li><li>Accept the transfer on the receiving device and wait for the progress bar to finish.</li></ol><section id="where-the-files-end-up" class="scroll-mt-24"><h2>Where the files end up</h2><p>On Windows, received files go to your browser&#x27;s download location, usually C:\Users\&lt;you&gt;\Downloads. Multiple files can be received individually or as a single ZIP if you enable bundling before sending.</p></section><section id="keeping-full-photo-quality" class="scroll-mt-24"><h2>Keeping full photo quality</h2><p>Unlike chat apps, a direct transfer sends the original file. Choose your photos from the file picker rather than a share sheet that may re-encode them, and confirm the file size on the sending screen matches the original.</p></section><section id="what-happens-to-your-files" class="scroll-mt-24"><h2>What happens to your files</h2><p>ShareDrop IO negotiates a direct WebRTC connection between the two browsers whenever the network allows it. In that case file bytes travel device-to-device and are never stored on our servers.</p><p>A small signalling service is still needed so the two browsers can find each other. It exchanges connection metadata only. When a direct path is impossible (strict NAT, mobile carrier firewalls), traffic can be relayed through an encrypted TURN relay — relayed data is not written to disk, but you should treat any relay as part of the transfer path.</p></section><section id="common-problems-and-fixes" class="scroll-mt-24"><h2>Common problems and fixes</h2><ul><li>Device not showing up: make sure both browsers have the page open and are not in a battery-saver tab freeze.</li><li>Transfer stalls at 0%: your network may block peer-to-peer traffic. Switch to Internet Room mode or another Wi-Fi network.</li><li>Transfer interrupted: use Retry — chunked transfers resume from the last verified chunk instead of restarting.</li><li>iOS Safari downloads: large files are saved to Files → Downloads, not the Photos app. Move them manually after receiving.</li><li>Screen locked mid-transfer: keep the sending tab in the foreground; mobile browsers throttle background tabs.</li></ul></section></div><div class="mt-12"><h2 class="mb-4 text-2xl font-bold">Try it now</h2><section id="app" aria-label="ShareDrop transfer app" class="rounded-3xl border border-border bg-card p-4 shadow-lift sm:p-6"><div role="tablist" aria-label="Transfer mode" class="flex gap-1 rounded-2xl bg-surface p-1"><button role="tab" aria-selected="true" class="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl px-2 text-xs font-semibold transition-colors sm:text-sm bg-card text-foreground shadow-soft"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe size-4 shrink-0" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span class="truncate">Secure Share</span></button><button role="tab" aria-selected="false" class="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl px-2 text-xs font-semibold transition-colors sm:text-sm text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wifi size-4 shrink-0" aria-hidden="true"><path d="M12 20h.01"></path><path d="M2 8.82a15 15 0 0 1 20 0"></path><path d="M5 12.859a10 10 0 0 1 14 0"></path><path d="M8.5 16.429a5 5 0 0 1 7 0"></path></svg><span class="truncate">Nearby</span></button><button role="tab" aria-selected="false" class="flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl px-2 text-xs font-semibold transition-colors sm:text-sm text-muted-foreground hover:text-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-qr-code size-4 shrink-0" aria-hidden="true"><rect width="5" height="5" x="3" y="3" rx="1"></rect><rect width="5" height="5" x="16" y="3" rx="1"></rect><rect width="5" height="5" x="3" y="16" rx="1"></rect><path d="M21 16h-3a2 2 0 0 0-2 2v3"></path><path d="M21 21v.01"></path><path d="M12 7v3a2 2 0 0 1-2 2H7"></path><path d="M3 12h.01"></path><path d="M12 3h.01"></path><path d="M12 16v.01"></path><path d="M16 12h1"></path><path d="M21 12v.01"></path><path d="M12 21v-1"></path></svg><span class="truncate">QR &amp; Pairing</span></button></div><div class="mt-6"><div class="space-y-5"><div class="relative overflow-hidden rounded-3xl border-2 border-dashed p-6 text-center transition-all sm:p-8 border-border bg-surface hover:border-primary/40"><span class="mx-auto grid size-14 place-items-center rounded-2xl bg-brand text-primary-foreground shadow-glow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-upload size-6" aria-hidden="true"><path d="M12 3v12"></path><path d="m17 8-5-5-5 5"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path></svg></span><p class="mt-3 font-display text-lg font-bold">Drop files to share securely</p><p class="mt-1 text-sm text-muted-foreground">Encrypted in transit • password optional • auto-expiring link</p><div class="mt-4 flex flex-wrap justify-center gap-2"><button type="button" class="inline-flex min-h-12 items-center gap-2 rounded-xl bg-brand px-5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-files size-4" aria-hidden="true"><path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"></path><path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"></path><path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"></path></svg> Choose files</button><button type="button" class="inline-flex min-h-12 items-center gap-2 rounded-xl border border-border bg-card px-5 text-sm font-semibold hover:bg-surface"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder size-4" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg> Select folder</button></div><input type="file" multiple="" aria-label="Choose files to share" class="sr-only"/><input type="file" multiple="" aria-label="Select a folder to share" class="sr-only" webkitdirectory="true" directory="true"/></div><div class="rounded-2xl border border-border bg-card p-4"><h3 class="flex items-center gap-2 text-sm font-semibold"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check size-4 text-primary" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg> Protection settings</h3><label class="mt-3 flex cursor-pointer items-center justify-between gap-3 rounded-xl bg-surface px-3 py-3"><span class="flex min-w-0 items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock size-4 shrink-0 text-primary" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span class="min-w-0"><span class="block text-sm font-medium">Require a password</span><span class="block text-xs text-muted-foreground">Recipients must type it before any download starts.</span></span></span><input type="checkbox" class="size-5 shrink-0 accent-[var(--color-primary)]" checked=""/></label><div class="mt-3 grid gap-2 sm:grid-cols-[minmax(0,1fr)_auto]"><div class="relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" aria-hidden="true"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle></svg><input type="text" placeholder="Auto-generated if left empty" aria-label="Share password" class="min-h-12 w-full rounded-xl border border-input bg-background pl-9 pr-3 text-sm" value=""/></div><button type="button" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-border px-4 text-sm font-semibold hover:bg-surface"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw size-4" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg> Generate</button></div><div class="mt-4"><p class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock size-3.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg> Link expires in</p><div class="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4"><button type="button" aria-pressed="false" class="min-h-11 rounded-xl border text-sm font-semibold transition-colors border-border bg-surface text-muted-foreground hover:text-foreground">1 hour</button><button type="button" aria-pressed="true" class="min-h-11 rounded-xl border text-sm font-semibold transition-colors border-primary bg-primary/10 text-foreground">6 hours</button><button type="button" aria-pressed="false" class="min-h-11 rounded-xl border text-sm font-semibold transition-colors border-border bg-surface text-muted-foreground hover:text-foreground">24 hours</button><button type="button" aria-pressed="false" class="min-h-11 rounded-xl border text-sm font-semibold transition-colors border-border bg-surface text-muted-foreground hover:text-foreground">3 days</button></div></div><div class="mt-4"><label for="share-note" class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Message for the recipient (optional)</label><textarea id="share-note" maxLength="280" rows="2" placeholder="e.g. Final invoice + signed contract" class="mt-2 w-full rounded-xl border border-input bg-background px-3 py-2 text-sm"></textarea></div></div><button type="button" disabled="" class="inline-flex min-h-13 w-full items-center justify-center gap-2 rounded-2xl bg-brand px-6 py-3.5 text-base font-bold text-primary-foreground shadow-glow transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link2 lucide-link-2 size-5" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg> Create secure share link<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right size-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div></div></section></div><section class="mt-12"><h2 class="text-2xl font-bold">FAQ</h2><dl class="mt-4 space-y-4"><div class="rounded-2xl border border-border bg-card p-5"><dt class="font-semibold">Do phone and PC need the same Wi-Fi?</dt><dd class="mt-1 text-sm text-muted-foreground">For nearby mode, yes. For different networks, use an internet room code.</dd></div><div class="rounded-2xl border border-border bg-card p-5"><dt class="font-semibold">Does it work with iPhone and Windows?</dt><dd class="mt-1 text-sm text-muted-foreground">Yes, both sides only need a modern browser.</dd></div><div class="rounded-2xl border border-border bg-card p-5"><dt class="font-semibold">Will it compress my photos?</dt><dd class="mt-1 text-sm text-muted-foreground">No. The original file bytes are transferred.</dd></div></dl></section><section class="mt-12"><h2 class="text-2xl font-bold">Related</h2><ul class="mt-3 flex flex-wrap gap-2"><li><a href="/phone-to-laptop" class="inline-flex rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium hover:border-primary/50 hover:text-primary">Phone to laptop</a></li><li><a href="/android-to-pc" class="inline-flex rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium hover:border-primary/50 hover:text-primary">Android to PC</a></li><li><a href="/send-photos" class="inline-flex rounded-full border border-border bg-surface px-4 py-2 text-sm font-medium hover:border-primary/50 hover:text-primary">Send photos</a></li></ul></section></article><!--/$--></main><footer class="mt-24 border-t border-border bg-surface/60"><div class="mx-auto max-w-6xl px-4 py-14"><div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_repeat(6,1fr)]"><div><span class="inline-flex items-center gap-2 "><svg width="36" height="36" viewBox="0 0 40 40" fill="none" aria-hidden="true" class="shrink-0"><rect width="40" height="40" rx="12" fill="url(#logo-grad)"></rect><rect x="8" y="10" width="10" height="18" rx="2" fill="white" fill-opacity="0.9"></rect><rect x="22" y="14" width="10" height="14" rx="2" fill="white" fill-opacity="0.8"></rect><path d="M14 16L26 24M26 24L22 24M26 24L26 20" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M26 16L14 24M14 24L18 24M14 24L14 20" stroke="url(#logo-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"></path><defs><linearGradient id="logo-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop stop-color="oklch(0.58 0.19 254)"></stop><stop offset="1" stop-color="oklch(0.75 0.14 190)"></stop></linearGradient></defs></svg><span class="font-display text-xl font-bold tracking-tight">ShareDrop <span class="text-gradient">IO</span></span></span><p class="mt-3 max-w-xs text-sm text-muted-foreground">Browser-to-browser file sharing between phones, tablets and computers. No app, no signup.</p></div><div><h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Product</h2><ul class="mt-3 space-y-2"><li><a href="en-transfer.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Transfer</a></li><li><a href="en-nearby.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Nearby</a></li><li><a href="en-rooms.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Rooms</a></li><li><a href="en-send-text.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Send Text</a></li><li><a href="en-send-link.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Send Link</a></li><li><a href="/en/sharedrop-ai" class="text-sm text-muted-foreground transition-colors hover:text-primary">ShareDrop AI</a></li></ul></div><div><h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Resources</h2><ul class="mt-3 space-y-2"><li><a href="en-how-it-works.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">How It Works</a></li><li><a href="en-faq.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">FAQ</a></li><li><a href="en-security.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Security</a></li><li><a href="blog.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Blog</a></li><li><a href="/en/compatibility" class="text-sm text-muted-foreground transition-colors hover:text-primary">Compatibility</a></li><li><a href="/en/troubleshooting" class="text-sm text-muted-foreground transition-colors hover:text-primary">Troubleshooting</a></li><li><a href="/en/setup-guide" class="text-sm text-muted-foreground transition-colors hover:text-primary">Setup Guide</a></li></ul></div><div><h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Alternatives</h2><ul class="mt-3 space-y-2"><li><a href="en-sharedrop-alternative.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">ShareDrop Alternative</a></li><li><a href="en-pairdrop-alternative.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">PairDrop Alternative</a></li><li><a href="en-snapdrop-alternative.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Snapdrop Alternative</a></li><li><a href="en-airdrop-alternative.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">AirDrop Alternative</a></li><li><a href="/en/wetransfer-alternative" class="text-sm text-muted-foreground transition-colors hover:text-primary">WeTransfer Alternative</a></li></ul></div><div><h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Guides</h2><ul class="mt-3 space-y-2"><li><a href="en-phone-to-pc.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Phone to PC</a></li><li><a href="en-android-to-pc.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Android to PC</a></li><li><a href="en-iphone-to-pc.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">iPhone to PC</a></li><li><a href="/en/mac-to-windows" class="text-sm text-muted-foreground transition-colors hover:text-primary">Mac to Windows</a></li><li><a href="en-send-large-files.html" class="text-sm text-muted-foreground transition-colors hover:text-primary">Send Large Files</a></li><li><a href="/en/send-photos" class="text-sm text-muted-foreground transition-colors hover:text-primary">Send Photos</a></li></ul></div><div><h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Company</h2><ul class="mt-3 space-y-2"><li><a href="/en/about" class="text-sm text-muted-foreground transition-colors hover:text-primary">About</a></li><li><a href="/en/contact" class="text-sm text-muted-foreground transition-colors hover:text-primary">Contact</a></li><li><a href="/en/pricing" class="text-sm text-muted-foreground transition-colors hover:text-primary">Pricing</a></li><li><a href="/en/abuse" class="text-sm text-muted-foreground transition-colors hover:text-primary">Report Abuse</a></li></ul></div><div><h2 class="text-xs font-semibold uppercase tracking-widest text-muted-foreground">Legal</h2><ul class="mt-3 space-y-2"><li><a href="/en/privacy" class="text-sm text-muted-foreground transition-colors hover:text-primary">Privacy</a></li><li><a href="/en/terms" class="text-sm text-muted-foreground transition-colors hover:text-primary">Terms</a></li><li><a href="/en/cookies" class="text-sm text-muted-foreground transition-colors hover:text-primary">Cookies</a></li><li><a href="/en/legal" class="text-sm text-muted-foreground transition-colors hover:text-primary">Legal</a></li></ul></div></div><div class="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"><p>© 2026 {name}. Independent project — not affiliated with ShareDrop, PairDrop, Snapdrop, AirDrop or WeTransfer.</p><p>share-drop-io.online</p></div></div></footer><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section></div>
+<aside
+	id="lovable-badge"
+	role="complementary"
+	dir="ltr"
+	lang="en"
+	aria-label="Edit with Lovable">
+	<a
+		id="lovable-badge-cta" 
+		target="_blank" 
+		href="https://lovable.dev/projects/lovp_0fbnrhabcf80k9ky3ksxq3qkqh?utm_source=lovable-badge"
+		rel="noopener nofollow"
+		aria-label="Edit with Lovable">
+		<span id="lovable-badge-text">Edit with</span>
+		<span id="lovable-badge-logo"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">
+  <path fill="#FCFBF8" fill-rule="evenodd" d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z" clip-rule="evenodd"/>
+  <path fill="#FCFBF8" d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z"/>
+  <path fill="url(#a)" fill-rule="evenodd" d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z" clip-rule="evenodd"/>
+  <defs>
+    <radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)" gradientUnits="userSpaceOnUse">
+      <stop offset=".106" stop-color="#FE7B02"/>
+      <stop offset=".394" stop-color="#FE3F21"/>
+      <stop offset=".608" stop-color="#F858BC"/>
+      <stop offset=".929" stop-color="#575ECF"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+</span>
+	</a>
+	
+	<span id="lovable-badge-divider" aria-hidden="true"></span>
+	
+	<button 
+		id="lovable-badge-close"
+		aria-label="Dismiss"
+		title="Dismiss"
+		type="button">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+			<path d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z"/>
+		</svg>
+	</button>
+</aside>
+
+</body></html>
